@@ -19,7 +19,8 @@ const App = () => {
   }
 
   function handleChange() {
-    setCount(count + 1); //here Count will always remain 0 (the value provided initially)
+    //here Count will always remain 0 (the value provided initially)
+    setCount(count + 1);
   }
 
   return (

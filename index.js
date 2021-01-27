@@ -8,29 +8,32 @@ import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 
 const App = () => {
   const [rowData, setRowData] = useState([]);
+  const [count, setCount] = useState(1);
 
-  fetchData();
+  loadDataFromServer();
 
-  function fetchData() {
-    //loading data from server
+  function loadDataFromServer() {
     setTimeout(() => {
       setRowData([{ make: "Toyota" }, { make: "Ford" }, { make: "Porsche" }]);
     }, 1000);
   }
 
-  function handleChange(param) {
-    console.log("rowData", rowData);
+  function handleChange() {
+    setCount(count + 1); //here Count will always remain 1 (the value provided initially)
   }
 
   return (
-    <div className="ag-theme-alpine" style={{ height: 400 }}>
-      <AgGridReact rowData={rowData}>
-        <AgGridColumn
-          field="make"
-          editable={true}
-          onCellValueChanged={handleChange}
-        />
-      </AgGridReact>
+    <div>
+      <h1>Count Changes: {count}</h1>
+      <div className="ag-theme-alpine" style={{ height: 400 }}>
+        <AgGridReact rowData={rowData}>
+          <AgGridColumn
+            field="make"
+            editable={true}
+            onCellValueChanged={handleChange}
+          />
+        </AgGridReact>
+      </div>
     </div>
   );
 };

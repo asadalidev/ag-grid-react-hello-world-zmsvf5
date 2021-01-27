@@ -8,18 +8,18 @@ import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 
 const App = () => {
   const [rowData, setRowData] = useState([]);
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(0);
 
   loadDataFromServer();
 
   function loadDataFromServer() {
     setTimeout(() => {
-      setRowData([{ make: "Toyota" }, { make: "Ford" }, { make: "Porsche" }]);
+      setRowData([{ make: "Toyota" }]);
     }, 1000);
   }
 
   function handleChange() {
-    setCount(count + 1); //here Count will always remain 1 (the value provided initially)
+    setCount(count + 1); //here Count will always remain 0 (the value provided initially)
   }
 
   return (

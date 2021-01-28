@@ -20,6 +20,7 @@ const App = () => {
 
   function handleChange() {
     //here Count will always remain 0 (the value provided initially)
+    console.log("Count => ", count);
     setCount(count + 1);
   }
 
